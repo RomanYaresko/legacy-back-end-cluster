@@ -1,0 +1,65 @@
+.figure_info
+{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 250px);
+    padding: 20px;
+    margin: 20px;
+    background-color: rgb(225, 225, 225);
+    flex-wrap: wrap;
+}
+.figure_text-info
+{
+    max-width: 500px;
+    max-height: 100px;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.figure_info img
+{
+    max-width: 150px;
+    height: auto;
+    object-fit: cover;
+    margin: 10px;
+}
+.figure_info div
+{
+    margin: 10px 0 ;
+}
+.figure_text
+{
+    display: flex;
+    flex-direction: column;
+}
+.figure_text a
+{
+    text-decoration: none;
+    color: black;
+    transition: 300ms;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.figure_text a img
+{
+    width: 35px;
+    height: auto;
+    object-fit: cover;
+    transition: 300ms;
+}
+.figure_text a:hover img
+{
+    transform: rotate(360deg);
+}
+.ajax_button_give{
+    transition: 300ms;
+    margin: 5px;
+}
+.ajax_button_give:hover
+{
+    background-color: rgba(0, 128, 0, 0.211);
+}

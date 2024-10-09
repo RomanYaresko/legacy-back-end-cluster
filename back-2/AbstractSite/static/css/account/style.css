@@ -1,0 +1,108 @@
+
+.content
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form
+{
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.form.active
+{
+    opacity: 1;
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form td input, .form td select, .form td textarea
+{
+    padding: 10px;
+    border: solid 1px black;
+    width: calc(100% - 20px);
+    font-size: 15px;
+    transition: 300ms;
+    resize: none;
+}
+.form td select
+{
+    width: 100%;
+}
+.form table
+{
+    text-align: right;
+    font-size: 15px;
+}
+.form table div
+{
+    padding: 10px;
+    color: white;
+}
+.input_lable
+{
+    background-color: black;
+}
+#id_user_image, #id_image
+{
+    border: none;
+}
+.send_button
+{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: calc(100% - 4px); 
+    border: solid 1px black;
+    transition: 300ms;
+}
+.send_button:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.invalidate
+{
+    box-shadow: 0 0 10px red;
+}
+.input_block
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form_body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button_body
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button img
+{
+    opacity: 0;
+    width: 0;
+}
+.button:hover
+{
+    cursor: pointer;
+}
+.button.active img
+{
+    width: auto;
+    opacity: 1;
+}

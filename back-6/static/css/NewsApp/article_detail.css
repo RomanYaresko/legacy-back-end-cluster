@@ -1,0 +1,7 @@
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aquamarine;
+    min-height: calc(100vh - 53px);
+}

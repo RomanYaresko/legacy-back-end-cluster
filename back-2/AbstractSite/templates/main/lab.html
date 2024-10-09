@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href={% static 'css/account/style.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'css/main/style.css' %}>
+{% endblock css_links %}
+{% block title %}Lab{% endblock title %}
+{% block content %}
+    <div class="main_content lab">
+        <div class="content_body">
+            <h1>This is your figures</h1>
+            <div class = "form_body-show">
+                <div class = "form_button-show">
+                    Add new
+                    <img src = {% static 'img/plus.png' %} alt = "Image">
+                </div>
+                <form method = "POST" action = "{% url 'new_figure' %}" class = "acc form" enctype="multipart/form-data">
+                    {% include 'small/form.html' with form=form text="Create" %}
+                </form>
+            </div>    
+            <div class="figures">
+                {% for fig in figures %}
+                    {% include 'small/figure.html' with figure=fig %}
+                {% endfor %}
+            </div>   
+        </div>
+    </div>
+{% endblock content %}
+{% block js_links %}
+    <script src={% static 'js/account/account.js' %}></script>
+    <script src={% static 'js/main/lab.js' %}></script>
+{% endblock js_links %}

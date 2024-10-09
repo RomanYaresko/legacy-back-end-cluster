@@ -1,0 +1,17 @@
+
+<html>
+    <head>
+        <title>Page Title</title>
+    </head>
+    <body>
+        <h1>All posts</h1>
+        {% for post in  all_posts %}
+            <h2>
+                New post {{post.pk}}
+            </h2>
+            <span>
+                {{post.main_text}}
+            </span>
+        {% endfor %}
+    </body>
+</html>

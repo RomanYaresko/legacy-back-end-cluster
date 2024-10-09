@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link href="{% static 'css/BlogApp/home.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <span>Author: {{post.author}}</span>
+            <h1><a href="{% url 'detail_post' post.pk %}" class="post-link">{{post.title}}</a></h1>
+            <span>{{post.text}}</span>
+            <h5><a href={% url 'update_post' post.pk %} class="post-link">Update</a></h5>
+            <h5><a href={% url 'delete_post' post.pk %} class="post-link">Delete</a></h5>
+        </div>
+    {% endfor %}
+{% endblock content %}

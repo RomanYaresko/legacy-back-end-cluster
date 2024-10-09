@@ -1,0 +1,13 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static 'css/small/small.css' %}>
+<a href="{%url 'user' username_slug=user_info.username%}" class = "user_info">
+    {% if user_info.user_image%}
+        <img src = {{user_info.user_image.url}} alt = "Image">
+    {% else %}
+        <img src = {% static 'img/default.png' %} alt = "Image">
+    {% endif %}
+    <div class="user_text">
+        {{user_info.first_name}} {{user_info.last_name}}<br>
+        {{user_info.email}}
+    </div>
+</a>

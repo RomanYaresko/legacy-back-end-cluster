@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link href="{% static 'css/NewsApp/article_detail.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Article {{article.title}}{% endblock title %}
+
+{% block content %}
+    <div class="article-entry">
+        <h2>{{ article.title }}</h2>
+        <p>{{ article.author }}</p>
+        <p>{{ article.date }}</p>
+        <p>{{ article.body }}</p>
+        {% if user.is_authenticated and article.author == user %}
+            <a href="{% url 'article_delete' article.pk %}">Delete</a>
+            <a href="{% url 'article_edit' article.pk %}">Edit</a>
+        {% endif %}
+    </div>
+{% endblock content %}

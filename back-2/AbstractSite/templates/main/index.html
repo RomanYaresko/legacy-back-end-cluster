@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href={% static 'css/main/style.css' %}>
+{% endblock css_links %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    <div class="full">
+        <img src = {% static 'img/background.png' %} alt = "Background">
+        <div class="full_text">Abstract<br> Site for<br> Society</div>
+    </div>
+    <div class="main_content">
+        <div class="content_body">
+            <div class="users">
+                <form method="GET" action="" class = "search">
+                    <input type=text name="username" class = "search_input" placeholder="Enter name or last neme">
+                    <input type=submit class = "search_button" value="Search">
+                </form>
+                {% for user_ in  users%}
+                    {% include 'small/user.html' with user_info=user_%}
+                {% endfor %}
+                <div class="pagination">
+                    {% for number in paginator.page_range %}
+                        {% if page_obj.number == number %}
+                            <div class = "button-user"><img src = {% static 'img/active.png' %} alt = "Close"><b>{{number}}</b></div>
+                        {% else %}
+                            <a href="?page={{number}}" class = "button-user"><img src = {% static 'img/page.png' %} alt = "Close"><b>{{number}}</b></a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

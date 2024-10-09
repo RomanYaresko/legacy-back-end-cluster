@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href={% static 'css/account/style.css' %}>
+{% endblock css_links %}
+{% block title %}Account{% endblock title %}
+{% block content %}
+
+    <div class="form_body">
+        <div class="button_body">
+            <div href={% url 'home' %} class = "button-user button 1 active" ><img src = {% static 'img/default.png' %} alt = "Close">Register</div>
+            <div href={% url 'home' %} class = "button-user button 2" ><img src = {% static 'img/default.png' %} alt = "Close">Login</div>
+        </div>
+        <form method = "POST" action = "{% url 'register' %}" class = "acc form 1 active">
+            {% include 'small/form.html' with form=reg_form text="Registration" %}
+        </form>
+        <form method = "POST" action = "{% url 'login' %}" class = "acc form 2">
+            {% include 'small/form.html' with form=log_form text="Login" %}
+        </form>
+    </div>
+{% endblock content %}
+
+{% block js_links %}
+    <script src={% static 'js/account/account.js' %}></script>
+{% endblock js_links %}

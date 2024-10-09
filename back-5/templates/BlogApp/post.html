@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link href="{% static 'css/BlogApp/post.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block content %}
+    <div class="detail-post">
+        <span>{{post.author}}</span>
+        <h2>{{post.title}}</h2>
+        <span>{{post.text}}</span>
+    </div>
+{% endblock content %}

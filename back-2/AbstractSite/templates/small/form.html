@@ -1,0 +1,13 @@
+{% csrf_token %}
+<table>
+    {% for item in form %}
+        <tr>
+            <td class = "input_lable"><div><b>{{item.label}}: </b></div></td>
+            <td class = "input_block">
+                {{item}}
+                <span id = "{{item.html_name}}" class="input_error"></span>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<input type="submit" value={{text}} class = "send_button">

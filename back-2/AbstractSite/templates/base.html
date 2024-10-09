@@ -1,0 +1,47 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href={% static 'css/style-base.css' %}>
+    {% block css_links %}{% endblock css_links %}
+    <title>{% block title %}A.S.S.{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <div class = 'user_ac'>
+            {% if request.user.is_authenticated %}
+                <div class = "user_acc-info">
+                    {% if user.user_image%}
+                        <img src = {{user.user_image.url}} alt = "Image">
+                    {% else %}
+                        <img src = {% static 'img/default.png' %} alt = "Image">
+                    {% endif %}
+                    {{request.user.first_name}} {{request.user.last_name}} 
+                    {{request.user.money}} F
+                </div>
+                <div class = "user_acc-info">
+                    <a href={% url 'home' %} class = "button-user"><img src = {% static 'img/main.png' %} alt = "Close"><b>Home</b></a>
+                    <a href={% url 'lab' %} class = "button-user"><img src = {% static 'img/lab.png' %} alt = "Close"><b>Lab</b></a>
+                    <a href={% url 'logout' %} class = "button-user"><img src = {% static 'img/close.png' %} alt = "Close"><b>Exit</b></a>
+                </div>
+            {% else %}
+                <div class = "user_acc-info">
+                    <a href={% url 'account' %} class = "button-user"><img src = {% static 'img/account.png' %} alt = "Close"><b>Reg or log</b></a>
+                    <a href={% url 'home' %} class = "button-user"><img src = {% static 'img/main.png' %} alt = "Close"><b>Home</b></a>
+                </div>
+            {% endif %}
+        </div>
+    </header>
+    <div class = 'content'>{% block content %}{% endblock content %}</div>
+    <div class = 'futer'>
+        <span>This is futer for A.S.S (Abstract Site for Society)</span>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src={% static 'js/index-base.js' %}></script>
+    {% block js_links %}{% endblock js_links %}
+</body>
+</html>

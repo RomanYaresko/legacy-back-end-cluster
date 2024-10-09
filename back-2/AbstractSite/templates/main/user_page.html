@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_links %}
+    <link rel="stylesheet" type="text/css" href={% static 'css/account/style.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'css/main/style.css' %}>
+{% endblock css_links %}
+{% block title %}User info{% endblock title %}
+{% block content %}
+<div class="main_content lab">
+    <div class="content_body">
+        <div class="user_page_info">
+            {% if user_info.user_image%}
+                <img src = {{user_info.user_image.url}} alt = "Image">
+            {% else %}
+                <img src = {% static 'img/default.png' %} alt = "Image">
+            {% endif %}
+            <div>
+                <div><b>{{user_info.first_name}} {{user_info.last_name}}</b></div>
+                <div><b>F: </b><span class="money">{{user_info.money}} F</span></div>
+                <div><b>Email: </b>{{user_info.email}}</div>
+                <div><b>Works: </b>{{works}} figures!</div>
+            </div>
+        </div>
+        <div class="figures">
+            {% for fig in figures %}
+                {% include 'small/figure.html' with figure=fig give=True like=True %}
+            {% endfor %}
+        </div>   
+    </div>
+</div>  
+{% endblock content %}
+{% block js_links %}
+    <script src={% static 'js/main/user_page.js' %}></script>
+{% endblock js_links %}

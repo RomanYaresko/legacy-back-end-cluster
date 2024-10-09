@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+    <link href="{% static 'css/NewsApp/forms.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Delete {{article.title}}{% endblock title %}
+
+{% block content %}
+    <h1>Delete "{{article.title}}"?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete" class="btn btn-danger">
+    </form>
+{% endblock content %}

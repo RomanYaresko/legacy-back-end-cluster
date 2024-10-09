@@ -1,0 +1,21 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href={% static 'css/small/figure.css' %}>
+<div class = "figure_info">
+    {% if give %}
+        <a href="?figure={{figure.slug}}&username_recipent={{figure.user.username}}" class="ajax_button_give"><img src = {{figure.image.url}} alt = "Image"></a>
+    {% else %}
+        <img src = {{figure.image.url}} alt = "Image">
+    {% endif %}
+    
+    <div class="figure_text">
+        <div><b>{{figure.title}}</b></div>
+        <div><b>Type:</b> {{figure.type.title}}</div>
+        <div class="figure_text-info"><b>Info:</b> {{figure.text}}</div>
+        <div><b>Cost:</b> {{figure.cost}} F</div>
+        {% if like %}
+            <a href="?like=True&figure={{figure.slug}}&username_recipent={{figure.user.username}}" class="ajax_button_like {{figure.pk}}">
+                <span>Likes: {{figure.likes}}</span> <img src = {% static 'img/like.png' %} alt = "Image">
+            </a>
+        {% endif %}
+    </div>
+</div>

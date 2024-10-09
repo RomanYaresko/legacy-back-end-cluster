@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block links %}
+    <link href="{% static 'css\UsersApp\auth_form.css' %}" rel="stylesheet">
+{% endblock links %}
+
+{% block title %}Sign up{% endblock title %}
+
+{% block content %}
+    <h1>Sign up</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Sign up" class="btn btn-success">
+    </form>
+{% endblock content %}
